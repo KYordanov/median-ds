@@ -5,7 +5,7 @@ public:
 	~MedianDS();
 
 	void pushBack(int insertVal);
-	void pushBefore(int pushAfterVal, int Value);
+	void pushBefore(int pushBeforeVal, int Value);
 	double getMedian();
 	void clearLastAdded();
 	void print();
