@@ -10,7 +10,7 @@ public:
 	~MedianDS();
 
 	void pushBack(int insertVal);
-	void pushBefore(int pushAfterVal, int Value);
+	void pushBefore(int pushBeforeVal, int Value);
 	double getMedian();
 	void clearLastAdded();
 	void print();
@@ -36,18 +36,18 @@ void MedianDS::pushBack(int Value)
 	medianHolder.push_back(Value);
 }
 
-double MedianDS::getMedian()
-{
-	return (double)lastAddedSum / medianHolder.size();
-}
-
-void MedianDS::pushBefore(int pushAfterVal, int Value)
+void MedianDS::pushBefore(int pushBeforeVal, int Value)
 {
 	lastAddedSum += Value;
-	std::list<int>::iterator it = std::find(medianHolder.begin(), medianHolder.end(), pushAfterVal);
+	std::list<int>::iterator it = std::find(medianHolder.begin(), medianHolder.end(), pushBeforeVal);
 	if (it != medianHolder.end()) {
 		medianHolder.insert(it, Value);
 	}
+}
+
+double MedianDS::getMedian()
+{
+	return (double)lastAddedSum / medianHolder.size();
 }
 
 void MedianDS::clearLastAdded()
@@ -60,7 +60,7 @@ void MedianDS::clearLastAdded()
 void MedianDS::print()
 {
 	std::list<int>::iterator it;
-	
+
 	std::cout << "Last added values: \n";
 	for (it = medianHolder.begin(); it != medianHolder.end(); it++)
 		std::cout << "[" << *it << "]";
