@@ -22,20 +22,16 @@ double MedianDS::getMedian()
 	double median = 0;
 	std::list<int>::iterator it = medianHolder.begin();
 	medianHolder.sort();
+	for (size_t i = 0; i < medianHolder.size() / 2; i++)
+	{
+		it++;
+	}
 	if (0 == (medianHolder.size() % 2))
 	{//even
-		for (size_t i = 0; i < medianHolder.size() / 2; i++)
-		{
-			it++;
-		}
 		median = ((double)*it + *--it) / 2;
 	}
 	else
 	{//odd
-		for (size_t i = 0; i < medianHolder.size() / 2; i++)
-		{
-			it++;
-		}
 		median = *it;
 	}
 	return median;
