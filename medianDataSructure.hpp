@@ -1,18 +1,16 @@
+
 class MedianDS
 {
 public:
 	MedianDS();
 	~MedianDS();
 
-	void pushBack(int insertVal);
-	void pushBefore(int pushBeforeVal, int Value);
+	void push(int Value);
 	double getMedian();
-	void clearLastAdded();
+	void clear();
 	void print();
 
 private:
 	std::list<int> medianHolder;
-	int lastAddedSum;
-	
-};
 
+};
