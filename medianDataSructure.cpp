@@ -11,6 +11,7 @@ public:
 
 	void pushBack(int insertVal);
 	void pushBefore(int pushAfterVal, int Value);
+	double getMedian();
 	void clearLastAdded();
 	void print();
 
@@ -33,6 +34,11 @@ void MedianDS::pushBack(int Value)
 {
 	lastAddedSum += Value;
 	medianHolder.push_back(Value);
+}
+
+double MedianDS::getMedian()
+{
+	return (double)lastAddedSum / medianHolder.size();
 }
 
 void MedianDS::pushBefore(int pushAfterVal, int Value)
@@ -60,7 +66,7 @@ void MedianDS::print()
 		std::cout << "[" << *it << "]";
 
 	std::cout << "\n";
-	std::cout << "Median of the values: " << (double)lastAddedSum / medianHolder.size() << "\n";
+	std::cout << "Median of the values: " << getMedian() << "\n";
 	std::cout << "Number of values: " << medianHolder.size() << "\n";
 	std::cout << "---------\n";
 }
@@ -89,6 +95,6 @@ int main()
 	myMedianDS.pushBefore(45, 7);
 	myMedianDS.print();
 
-    return 0;
+	return 0;
 }
 
